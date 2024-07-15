@@ -2,27 +2,27 @@ import Avatar from "./Avatar";
 import Cart from "./Cart";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
-import menu from "../assets/icon-menu.svg";
-import close from "../assets/icon-close.svg";
+import menu from "../../assets/icon-menu.svg";
+import close from "../../assets/icon-close.svg";
 import { useState } from "react";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <div className="flex items-center justify-between border-b-[1px]">
+    <div className="flex items-center justify-between py-6 sm:border-b-[1px] sm:py-0">
       <div className="relative flex items-center gap-5 sm:gap-16">
         <img
           src={isOpen ? menu : close}
           alt=""
-          className="cursor-pointer sm:hidden"
+          className="z-50 cursor-pointer sm:hidden"
           onClick={() => setIsOpen(!isOpen)}
         />
 
         <Logo />
-        <Navigation />
+        <Navigation isOpen={isOpen} />
       </div>
 
-      <div className="flex items-center gap-10">
+      <div className="relative flex items-center gap-5 sm:gap-10">
         <Cart />
         <Avatar />
       </div>
