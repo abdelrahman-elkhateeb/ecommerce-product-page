@@ -1,7 +1,10 @@
 import { useState } from "react";
 import cart from "../../assets/icon-cart.svg";
-function Cart() {
+import img from "../../assets/image-product-1.jpg";
+
+function Cart({ items, setItems }) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div
@@ -18,9 +21,28 @@ function Cart() {
           Cart
         </h4>
         <div>
-          <p className="flex min-h-48 items-center justify-center font-bold text-gray-500">
+          <section className="p-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <img src={img} alt="img" className="w-12" />
+              </div>
+
+              <div className="grow">
+                <p>fall limited edition sneakers</p>
+                <p>
+                  $125 x {items} <span>${items * 125}</span>
+                </p>
+              </div>
+              <span className="material-symbols-outlined">delete</span>
+            </div>
+
+            <button className="w-full bg-orange p-3 font-bold text-black">
+              Checkout
+            </button>
+          </section>
+          {/* <p className="flex min-h-48 items-center justify-center font-bold text-gray-500">
             your cart is empty
-          </p>
+          </p> */}
         </div>
       </div>
     </>
