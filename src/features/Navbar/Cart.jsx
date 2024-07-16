@@ -12,7 +12,7 @@ function Cart({ items, setItems, isCartOpen, setIsCartOpen }) {
         <img src={cart} alt="cart" className="cursor-pointer" />
       </div>
       <div
-        className={`fixed sm:absolute ${isCartOpen ? "block" : "hidden"} right-0 top-20 w-full rounded-md bg-white shadow-md sm:w-72`}
+        className={`fixed z-50 sm:absolute ${isCartOpen ? "block" : "hidden"} right-0 top-20 w-full rounded-md bg-white shadow-md sm:w-72`}
       >
         <h4 className="border-b-[1px] border-x-gray-700 p-5 font-bold text-black">
           Cart

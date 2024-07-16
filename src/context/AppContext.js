@@ -2,6 +2,8 @@ import { createContext, useContext } from "react";
 
 const AppContext = createContext();
 
+function appContextProvider() {}
+
 function useAppContext() {
   const context = useContext(AppContext);
   if (context === undefined)
