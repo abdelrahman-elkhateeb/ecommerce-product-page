@@ -1,4 +1,4 @@
-function ProductDetails({ items, setItems }) {
+function ProductDetails({ items, setItems, isCartOpen, setIsCartOpen }) {
   return (
     <div className="flex flex-col justify-between">
       <p className="mb-2 font-bold uppercase text-gray-500">sneaker company</p>
@@ -40,7 +40,10 @@ function ProductDetails({ items, setItems }) {
           </span>
         </div>
 
-        <button className="flex grow-[3] items-center justify-center gap-3 rounded-lg bg-orange px-2 py-4">
+        <button
+          className="flex grow-[3] items-center justify-center gap-3 rounded-lg bg-orange px-2 py-4"
+          onClick={() => items > 0 && setIsCartOpen(true)}
+        >
           <span className="material-symbols-outlined">shopping_cart</span>
           <p className="font-bold">Add to cart</p>
         </button>
