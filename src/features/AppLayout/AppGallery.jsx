@@ -27,7 +27,7 @@ function AppGallery() {
           ))}
         </div>
       </div>
-      <ImgSlider/>
+      {/* <ImgSlider/> */}
     </>
   );
 }

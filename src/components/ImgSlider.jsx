@@ -34,6 +34,9 @@ function ImgSlider() {
     "absolute top-2/4 -translate-y-2/4 rounded-full bg-white p-4 hover:bg-orange transition-all duration-300";
   return (
     <div className="absolute left-1/2 top-1/2 w-2/4 -translate-x-1/2 -translate-y-1/2">
+      <span className="material-symbols-outlined absolute -top-8 right-0 z-[9999] block cursor-pointer text-3xl text-orange">
+        close
+      </span>
       <div className="relative">
         <button onClick={() => handlePrev()} className={`${className} -left-5`}>
           <img src={prev} alt="product" />
