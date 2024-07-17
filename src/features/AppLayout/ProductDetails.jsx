@@ -1,4 +1,7 @@
-function ProductDetails({ items, setItems, isCartOpen, setIsCartOpen }) {
+import useCartContext from "../../context/UseCartContext";
+
+function ProductDetails() {
+  const { items, setItems, setIsCartOpen } = useCartContext();
   return (
     <div className="flex flex-col justify-between">
       <p className="mb-2 font-bold uppercase text-gray-500">sneaker company</p>

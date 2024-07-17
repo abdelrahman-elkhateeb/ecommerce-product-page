@@ -1,7 +1,9 @@
 import cart from "../../assets/icon-cart.svg";
 import img from "../../assets/image-product-1.jpg";
+import useCartContext from "../../context/UseCartContext";
 
-function Cart({ items, setItems, isCartOpen, setIsCartOpen }) {
+function Cart() {
+  const { items, setItems, isCartOpen, setIsCartOpen } = useCartContext();
   return (
     <>
       <div
