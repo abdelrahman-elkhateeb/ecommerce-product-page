@@ -1,9 +1,10 @@
 import { CartProvider } from "./context/CartProvider";
 import AppLayout from "./features/AppLayout/AppLayout";
 import NavBar from "./features/Navbar/NavBar";
+
 function App() {
   return (
-    <div className="container mx-auto px-4">
+    <div className={`container relative mx-auto h-dvh px-4`}>
       <CartProvider>
         <NavBar />
         <AppLayout />

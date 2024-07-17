@@ -17,7 +17,12 @@ function AppGallery() {
   const { setIsImgSliderOpen } = UseAppGalleryContext();
   return (
     <>
-      <div className="cursor-pointer" onClick={() => setIsImgSliderOpen(true)}>
+      <div
+        className="cursor-pointer"
+        onClick={() => {
+          setIsImgSliderOpen(true);
+        }}
+      >
         <div className="mb-5">
           <img src={img} alt="" className="rounded-2xl lg:w-9/12" />
         </div>
