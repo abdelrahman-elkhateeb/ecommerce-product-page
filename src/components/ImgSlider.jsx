@@ -6,6 +6,7 @@ import productImgFour from "../assets/image-product-4.jpg";
 
 import next from "../assets/icon-next.svg";
 import prev from "../assets/icon-previous.svg";
+import UseAppGalleryContext from "../context/UseAppGalleryContext";
 
 const imgSlider = [
   productImgOne,
@@ -16,39 +17,38 @@ const imgSlider = [
 
 function ImgSlider() {
   const [imgIndex, setImageIndex] = useState(0);
+  const { isImgSliderOpen, setIsImgSliderOpen } = UseAppGalleryContext();
 
   function handleNext() {
-    setImageIndex((index) => {
-      if (index === imgSlider.length - 1) return 0;
-      return index + 1;
-    });
+    setImageIndex((index) => (index === imgSlider.length - 1 ? 0 : index + 1));
   }
 
   function handlePrev() {
-    setImageIndex((index) => {
-      if (index === 0) return imgSlider.length - 1;
-      return index - 1;
-    });
+    setImageIndex((index) => (index === 0 ? imgSlider.length - 1 : index - 1));
   }
-  const className =
-    "absolute top-2/4 -translate-y-2/4 rounded-full bg-white p-4 hover:bg-orange transition-all duration-300";
+
+  const buttonClassName =
+    "absolute top-1/2 transform -translate-y-1/2 rounded-full bg-white p-4 hover:bg-orange transition-all duration-300";
+
   return (
-    <div className="absolute left-1/2 top-1/2 w-2/4 -translate-x-1/2 -translate-y-1/2">
-      <span className="material-symbols-outlined absolute -top-8 right-0 z-[9999] block cursor-pointer text-3xl text-orange">
+    <div
+      className={`absolute left-1/2 top-1/2 w-2/4 -translate-x-1/2 -translate-y-1/2 transform ${isImgSliderOpen ? "block" : "hidden"}`}
+    >
+      <span
+        className="material-symbols-outlined absolute -top-8 right-0 z-50 cursor-pointer text-3xl text-orange"
+        onClick={() => setIsImgSliderOpen(false)}
+      >
         close
       </span>
       <div className="relative">
-        <button onClick={() => handlePrev()} className={`${className} -left-5`}>
-          <img src={prev} alt="product" />
+        <button onClick={handlePrev} className={`${buttonClassName} -left-5`}>
+          <img src={prev} alt="previous" />
         </button>
 
-        <img src={imgSlider[imgIndex]} alt="" className="rounded-xl" />
+        <img src={imgSlider[imgIndex]} alt="product" className="rounded-xl" />
 
-        <button
-          onClick={() => handleNext()}
-          className={`${className} -right-6`}
-        >
-          <img src={next} alt="product" />
+        <button onClick={handleNext} className={`${buttonClassName} -right-6`}>
+          <img src={next} alt="next" />
         </button>
       </div>
     </div>

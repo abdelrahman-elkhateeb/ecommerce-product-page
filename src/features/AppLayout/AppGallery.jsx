@@ -4,6 +4,7 @@ import productThumbImgTwo from "../../assets/image-product-2-thumbnail.jpg";
 import productThumbImgThree from "../../assets/image-product-3-thumbnail.jpg";
 import productThumbImgFour from "../../assets/image-product-4-thumbnail.jpg";
 import ImgSlider from "../../components/ImgSlider";
+import UseAppGalleryContext from "../../context/UseAppGalleryContext";
 
 const imgs = [
   { id: 1, prod: productThumbImgOne },
@@ -13,9 +14,10 @@ const imgs = [
 ];
 
 function AppGallery() {
+  const { setIsImgSliderOpen } = UseAppGalleryContext();
   return (
     <>
-      <div className="cursor-pointer">
+      <div className="cursor-pointer" onClick={() => setIsImgSliderOpen(true)}>
         <div className="mb-5">
           <img src={img} alt="" className="rounded-2xl lg:w-9/12" />
         </div>
@@ -27,7 +29,7 @@ function AppGallery() {
           ))}
         </div>
       </div>
-      {/* <ImgSlider/> */}
+      <ImgSlider />
     </>
   );
 }
